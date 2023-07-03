@@ -28,11 +28,11 @@ struct SCInput {
     struct CDXUTDialog* m_pGameUi;
     struct CDXUTEditBox* m_pEditbox;
     CMDPROC m_pCommandProc[144];
-    char m_szCommandName[33][144];
+    char m_szCommandName[144][33];
     int m_nCommandCount;
     BOOL m_bEnabled;
     char m_szInput[129];
-    char m_szRecallBufffer[129][10];
+    char m_szRecallBufffer[10][129];
     char m_szCurrentBuffer[129];
     int m_nCurrentRecall;
     int m_nTotalRecall;

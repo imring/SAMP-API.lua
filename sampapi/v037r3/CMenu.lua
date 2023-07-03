@@ -33,8 +33,8 @@ typedef struct SCMenu SCMenu;
 struct SCMenu {
     unsigned char m_nId;
     char m_szTitle[32];
-    char m_szItems[32][2][12];
-    char m_szHeader[32][2];
+    char m_szItems[12][2][32];
+    char m_szHeader[2][32];
     float m_fPosX;
     float m_fPosY;
     float m_fFirstColumnWidth;
