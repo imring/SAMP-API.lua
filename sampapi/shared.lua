@@ -20,7 +20,6 @@ local module = {
 function module.ffi.cdef(def)
 	local defn, c = def:gsub('struct%s*([_%a%d]+)%s*:%s*(%a*%s*[_%a%d]+)[\n%s]*{', 'struct %1 { %2 __parent;')
 
-	print(defn)
 	cdef(defn)
 
 	if c == 0 then return end
