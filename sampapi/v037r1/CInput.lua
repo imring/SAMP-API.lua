@@ -27,7 +27,7 @@ struct SCInput {
     struct IDirect3DDevice9* m_pDevice;
     struct CDXUTDialog* m_pGameUi;
     struct CDXUTEditBox* m_pEditbox;
-    CMDPROC m_pCommandProc[144];
+    CMDPROC m_commandProc[144];
     char m_szCommandName[144][33];
     int m_nCommandCount;
     BOOL m_bEnabled;
