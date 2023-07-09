@@ -15,8 +15,7 @@ local metatable = {}
 
 function ffi.metatype(ct, mt)
 	metatable[ct] = mt
-
-	metatype(ct, mt)
+	return metatype(ct, mt)
 end
 
 local module = {}

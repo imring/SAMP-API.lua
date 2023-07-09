@@ -10,7 +10,6 @@
 local shared = require 'sampapi.shared'
 
 local ffi = shared.ffi
-local cast = ffi.cast
 
 ffi.cdef[[
 typedef struct ID3DXFont ID3DXFont;
