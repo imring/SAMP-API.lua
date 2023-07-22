@@ -113,9 +113,10 @@ local SCObjectEdit_mt = {
 }
 mt.set_handler('struct SCObjectEdit', '__index', SCObjectEdit_mt)
 
--- RefObjectEdit = ...
+local function RefObjectEdit() return ffi.cast('SCObjectEdit**', sampapi.GetAddress(0x26E8A8))[0] end
 
 return {
     new = CObjectEdit_new,
     GetMaxSizeChar = GetMaxSizeChar,
+    RefObjectEdit = RefObjectEdit,
 }

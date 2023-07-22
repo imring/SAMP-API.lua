@@ -108,15 +108,16 @@ local SCObjectEdit_mt = {
     Disable = ffi.cast('void(__thiscall*)(SCObjectEdit*, BOOL)', sampapi.GetAddress(0x6E5E0)),
     RenderControlsForObject = ffi.cast('BOOL(__thiscall*)(SCObjectEdit*, SCMatrix*, float)', sampapi.GetAddress(0x6E650)),
     ApplyChanges = ffi.cast('void(__thiscall*)(SCObjectEdit*, SObjectEditProcessType, float)', sampapi.GetAddress(0x6EE80)),
-    -- ProcessMouseMove = ...
+    ProcessMouseMove = ffi.cast('float(__thiscall*)(SCObjectEdit*)', sampapi.GetAddress(0x6EEA0)),
     MsgProc = ffi.cast('BOOL(__thiscall*)(SCObjectEdit*, int, int, int)', sampapi.GetAddress(0x6EF70)),
     Render = ffi.cast('void(__thiscall*)(SCObjectEdit*)', sampapi.GetAddress(0x6F1A0)),
 }
 mt.set_handler('struct SCObjectEdit', '__index', SCObjectEdit_mt)
 
--- RefObjectEdit = ...
+local function RefObjectEdit() return ffi.cast('SCObjectEdit**', sampapi.GetAddress(0x21A0C4))[0] end
 
 return {
     new = CObjectEdit_new,
     GetMaxSizeChar = GetMaxSizeChar,
+    RefObjectEdit = RefObjectEdit,
 }

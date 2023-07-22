@@ -96,7 +96,7 @@ local function CChat_new(...)
 end
 
 local SCChat_mt = {
-    -- GetMode = ...
+    GetMode = ffi.cast('int(__thiscall*)(SCChat*)', sampapi.GetAddress(0x5D7A0)),
     SwitchMode = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x5D7B0)),
     RecalcFontSize = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x63550)),
     OnLostDevice = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x635D0)),
@@ -105,7 +105,7 @@ local SCChat_mt = {
     PageUp = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x63700)),
     PageDown = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x63760)),
     ScrollToBottom = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x637C0)),
-    -- Scroll = ...
+    Scroll = ffi.cast('void(__thiscall*)(SCChat*, int)', sampapi.GetAddress(0x637F0)),
     FilterOutInvalidChars = ffi.cast('void(__thiscall*)(SCChat*, char*)', sampapi.GetAddress(0x63850)),
     -- PushBack = ...
     RenderEntry = ffi.cast('void(__thiscall*)(SCChat*, const char*, SCRect, D3DCOLOR)', sampapi.GetAddress(0x638A0)),
@@ -114,7 +114,7 @@ local SCChat_mt = {
     Render = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x63D70)),
     AddEntry = ffi.cast('void(__thiscall*)(SCChat*, int, const char*, const char*, D3DCOLOR, D3DCOLOR)', sampapi.GetAddress(0x64010)),
     Draw = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x64230)),
-    -- RenderToSurface = ...
+    RenderToSurface = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x64300)),
     AddChatMessage = ffi.cast('void(__thiscall*)(SCChat*, const char*, D3DCOLOR, const char*)', sampapi.GetAddress(0x64450)),
     AddMessage = ffi.cast('void(__thiscall*)(SCChat*, D3DCOLOR, const char*)', sampapi.GetAddress(0x645A0)),
     OnResetDevice = ffi.cast('void(__thiscall*)(SCChat*)', sampapi.GetAddress(0x64600)),

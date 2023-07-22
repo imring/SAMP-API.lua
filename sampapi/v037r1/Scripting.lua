@@ -28,7 +28,7 @@ local function RefThread() return ffi.cast('SCRunningScript**', sampapi.GetAddre
 local function ArrayBuffer() return ffi.cast('unsigned char* ', sampapi.GetAddress(0x215F48)) end
 local function RefLastUsedOpcode() return ffi.cast('unsigned long*', sampapi.GetAddress(0x21604C))[0] end
 local function ArrayThreadLocals() return ffi.cast('unsigned long** ', sampapi.GetAddress(0x215F00)) end
--- RefLocalDebug = ...
+local function RefLocalDebug() return ffi.cast('BOOL*', sampapi.GetAddress(0x216050))[0] end
 local function RefProcessOneCommand() return ffi.cast('SProcessOneCommandFn*', sampapi.GetAddress(0x1023C4))[0] end
 local Initialize = ffi.cast('void(__cdecl*)()', sampapi.GetAddress(0xABF10))
 local ExecBuffer = ffi.cast('int(__cdecl*)()', sampapi.GetAddress(0xABC90))
@@ -39,6 +39,7 @@ return {
     ArrayBuffer = ArrayBuffer,
     RefLastUsedOpcode = RefLastUsedOpcode,
     ArrayThreadLocals = ArrayThreadLocals,
+    RefLocalDebug = RefLocalDebug,
     RefProcessOneCommand = RefProcessOneCommand,
     Initialize = Initialize,
     ExecBuffer = ExecBuffer,

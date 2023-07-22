@@ -57,7 +57,7 @@ local SCObjectPool_mt = {
     ShutdownMaterials = ffi.cast('void(__thiscall*)(SCObjectPool*)', sampapi.GetAddress(0xF6A0)),
     Draw = ffi.cast('void(__thiscall*)(SCObjectPool*)', sampapi.GetAddress(0xF6E0)),
     DrawLast = ffi.cast('void(__thiscall*)(SCObjectPool*)', sampapi.GetAddress(0xF720)),
-    -- Get = ...
+    Get = ffi.cast('SCObject*(__thiscall*)(SCObjectPool*, ID)', sampapi.GetAddress(0x2DD0)),
 }
 mt.set_handler('struct SCObjectPool', '__index', SCObjectPool_mt)
 
